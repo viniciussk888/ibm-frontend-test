@@ -1,12 +1,6 @@
 import React from "react";
-import "tailwindcss/tailwind.css";
+import { Routes } from "./routes";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>test</h1>
-    </div>
-  );
-}
+const App: React.FC = () => <Routes />;
 
 export default App;
