@@ -26,7 +26,7 @@ export const BookCard: React.FC<ComponentProps> = (props) => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="p">
-            {authors}
+            {authors.slice(0, 20)}
           </Typography>
           <Typography variant="body2" component="p">
             {title}
