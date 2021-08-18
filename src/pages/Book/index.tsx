@@ -65,7 +65,7 @@ export const Book: React.FC = () => {
       favoriteLocalStorage("removeFavorite", id);
       setFavorite(false);
     }
-  }, [favorite, book]);
+  }, [favorite, book, id]);
 
   useEffect(() => {
     getBook();
@@ -79,7 +79,7 @@ export const Book: React.FC = () => {
     if (index !== -1) {
       setFavorite(true);
     }
-  }, []);
+  }, [id]);
 
   return (
     <>

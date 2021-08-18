@@ -8,8 +8,10 @@ import { BookList } from "../../components/BookList";
 //service
 import getbooks from "./getBooksService";
 import { BookData } from "./getBooksService";
+import { useHistory } from "react-router-dom";
 
 export const Home: React.FC = () => {
+  const history = useHistory();
   const [searchParams, setSearchParams] = useState("");
   const [loading, setLoading] = useState(false);
   const [books, setBooks] = useState<BookData>();
@@ -32,7 +34,7 @@ export const Home: React.FC = () => {
       <Container>
         <Title>Explore livros na biblioteca da Google</Title>
 
-        <IconButton>
+        <IconButton onClick={() => history.push("favorites")}>
           Meus Favoritos <Favorite />
         </IconButton>
 

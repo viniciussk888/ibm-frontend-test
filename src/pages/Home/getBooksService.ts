@@ -10,8 +10,12 @@ export interface BookResponse {
   title: string;
   description: string;
   imageLinks?: {
+    small: string;
     smallThumbnail: string;
     thumbnail: string;
+    medium: string;
+    large: string;
+    extraLarge: string;
   };
   authors: string;
   publishedDate: string;
