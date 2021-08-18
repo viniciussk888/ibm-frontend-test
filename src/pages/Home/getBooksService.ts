@@ -9,11 +9,11 @@ export interface BookResponse {
   id: string;
   title: string;
   description: string;
-  imageLinks: {
+  imageLinks?: {
     smallThumbnail: string;
     thumbnail: string;
   };
-  authors: string[];
+  authors: string;
 }
 
 export interface BookData {
@@ -41,7 +41,13 @@ async function getBooks({
       totalItems,
       books: items?.map((book: any) => {
         const { id } = book;
-        const { title, description, imageLinks, authors } = book.volumeInfo;
+        const {
+          title,
+          description,
+          imageLinks,
+          authors: authorsList,
+        } = book.volumeInfo;
+        const authors = authorsList?.join(" & ");
         return { id, title, description, imageLinks, authors };
       }),
     };

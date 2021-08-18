@@ -9,7 +9,7 @@ interface ComponentProps {
 }
 export const BookList: React.FC<ComponentProps> = (props) => (
   <Grid container spacing={3}>
-    {props.listBooks.books.map((book) => (
+    {props.listBooks.books?.map((book) => (
       <Grid key={book.id} item xs={6} sm={4} md={3}>
         <BookCard bookItem={book} />
       </Grid>

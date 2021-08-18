@@ -1,16 +1,18 @@
 import React, { useState, useCallback } from "react";
 import { Title, Form } from "./styles";
 // material
-import { Container, IconButton } from "@material-ui/core";
+import { Container, IconButton, CircularProgress } from "@material-ui/core";
 import { Favorite } from "@material-ui/icons";
 import { BookList } from "../../components/BookList";
 //import Pagination from '@material-ui/lab/Pagination';
 //service
 import getbooks from "./getBooksService";
 import { BookData } from "./getBooksService";
+import { truncate } from "fs";
 
 export const Home: React.FC = () => {
   const [searchParams, setSearchParams] = useState("");
+  const [loading, setLoading] = useState(false);
   const [books, setBooks] = useState<BookData>();
   const [totalItems, setTotalItems] = useState(-1);
   const [indexPagination, setIndexPagination] = useState(0);
@@ -19,14 +21,17 @@ export const Home: React.FC = () => {
     if (searchParams === "") {
       return alert("Informe o nome do livro!");
     }
+    setLoading(true);
     const result = await getbooks({ searchParams, indexPagination });
     setBooks(result);
     setTotalItems(result.totalItems);
+    setLoading(false);
   }, [searchParams, indexPagination]);
+
   return (
     <>
       <Container>
-        <Title>Explore livros na biblioteca da google</Title>
+        <Title>Explore livros na biblioteca da Google</Title>
 
         <IconButton>
           Meus Favoritos <Favorite />
@@ -37,7 +42,9 @@ export const Home: React.FC = () => {
             onChange={(e) => setSearchParams(e.target.value)}
             placeholder="Digite o nome do livro"
           />
-          <button onClick={searchBooks}>Buscar</button>
+          <button onClick={searchBooks}>
+            {loading ? <CircularProgress /> : "Buscar"}
+          </button>
         </Form>
         {totalItems > 0
           ? books && <BookList listBooks={books} />

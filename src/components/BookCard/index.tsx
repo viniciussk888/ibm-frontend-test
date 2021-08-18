@@ -12,29 +12,32 @@ interface ComponentProps {
   bookItem: BookResponse;
   children?: ReactNode;
 }
-export const BookCard: React.FC<ComponentProps> = (props) => (
-  <Card>
-    <CardActionArea>
-      <CardMedia
-        component="img"
-        alt={props.bookItem.title}
-        height="140"
-        // image={props.bookItem.imageLinks.smallThumbnail}
-        title={props.bookItem.title}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
-          {props.bookItem.title}
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {props.bookItem.title}
-        </Typography>
-      </CardContent>
-    </CardActionArea>
-    <CardActions>
-      <Button size="small" color="primary">
-        Ver detalhes
-      </Button>
-    </CardActions>
-  </Card>
-);
+export const BookCard: React.FC<ComponentProps> = (props) => {
+  const { imageLinks, authors, title } = props.bookItem;
+  return (
+    <Card>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          alt={props.bookItem.title}
+          height="140"
+          image={imageLinks?.thumbnail || ""}
+          title={props.bookItem.title}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="p">
+            {authors}
+          </Typography>
+          <Typography variant="body2" component="p">
+            {title}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary">
+          Ver detalhes
+        </Button>
+      </CardActions>
+    </Card>
+  );
+};
