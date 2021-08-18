@@ -14,6 +14,8 @@ export interface BookResponse {
     thumbnail: string;
   };
   authors: string;
+  publishedDate: string;
+  previewLink: string;
 }
 
 export interface BookData {
@@ -22,7 +24,7 @@ export interface BookData {
 }
 
 /**
- * @description busca os lvros na api do google
+ * @description busca os livros na api do google
  * */
 async function getBooks({
   searchParams,
@@ -32,8 +34,6 @@ async function getBooks({
     const response = await api.get(
       `volumes?q=${searchParams}&maxResults=20&startIndex=${indexPagination}`
     );
-
-    console.warn(response.data);
 
     const { items, totalItems } = response.data;
 
@@ -46,9 +46,19 @@ async function getBooks({
           description,
           imageLinks,
           authors: authorsList,
+          publishedDate,
+          previewLink,
         } = book.volumeInfo;
         const authors = authorsList?.join(" & ");
-        return { id, title, description, imageLinks, authors };
+        return {
+          id,
+          title,
+          description,
+          imageLinks,
+          authors,
+          publishedDate,
+          previewLink,
+        };
       }),
     };
   } catch (error) {

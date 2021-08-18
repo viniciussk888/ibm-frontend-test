@@ -10,7 +10,7 @@ export const Routes: React.FC = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/book" component={Book} />
+        <Route path="/book/:id" component={Book} />
       </Switch>
     </BrowserRouter>
   );
