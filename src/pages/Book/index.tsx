@@ -92,7 +92,7 @@ export const Book: React.FC = () => {
         <CardMedia
           component="img"
           alt={book?.title}
-          image={book?.imageLinks?.medium}
+          image={book?.imageLinks?.large}
           title={book?.title}
         />
         <CardContent>
