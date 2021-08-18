@@ -15,4 +15,4 @@ DEMO disponivel em: https://ibmbooks.netlify.app/
 
 ## 🆙 Demo
 
-<img src="https://user-images.githubusercontent.com/30902898/129972012-5b6b7479-3f3d-4be6-9815-d82c22ffd725.gif" width="400px">
+<img src="https://user-images.githubusercontent.com/30902898/129972012-5b6b7479-3f3d-4be6-9815-d82c22ffd725.gif" width="800px">
