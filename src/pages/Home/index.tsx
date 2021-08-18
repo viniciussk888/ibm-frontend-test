@@ -46,7 +46,9 @@ export const Home: React.FC = () => {
           {loading ? (
             <CircularProgress />
           ) : (
-            <button onClick={searchBooks}>Buscar</button>
+            <button id="button-search" onClick={searchBooks}>
+              Buscar
+            </button>
           )}
         </Form>
         {totalItems > 0

@@ -20,7 +20,7 @@ interface BookParams {
   id: string;
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     marginTop: 40,
   },
