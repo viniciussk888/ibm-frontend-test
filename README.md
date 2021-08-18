@@ -13,7 +13,6 @@ DEMO disponivel em: https://ibmbooks.netlify.app/
 ![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)
 ![MaterialUI](https://img.shields.io/badge/-MaterialUI-black?style=flat-square&logo=materialui)
 
-#
+## 🆙 Demo
 
-## 🆙 
-
+<img src="https://user-images.githubusercontent.com/30902898/129972012-5b6b7479-3f3d-4be6-9815-d82c22ffd725.gif" width="400px">
