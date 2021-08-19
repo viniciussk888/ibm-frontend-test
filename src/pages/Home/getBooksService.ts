@@ -2,7 +2,7 @@ import { api } from "../../services/api";
 
 type ServiceParams = {
   searchParams: string;
-  indexPagination: number;
+  page: number;
 };
 
 export interface BookResponse {
@@ -32,11 +32,15 @@ export interface BookData {
  * */
 async function getBooks({
   searchParams,
-  indexPagination,
+  page,
 }: ServiceParams): Promise<BookData> {
+  let sum = 1;
+  if(page!==1){
+    sum = 10*page;
+  }
   try {
     const response = await api.get(
-      `volumes?q=${searchParams}&maxResults=20&startIndex=${indexPagination}`
+      `volumes?q=${searchParams}&maxResults=10&startIndex=${page-1+sum}`
     );
 
     const { items, totalItems } = response.data;
