@@ -1,6 +1,6 @@
 ## Olá! <img src="https://raw.githubusercontent.com/victoralmeidadev/victoralmeidadev/master/wave.gif" width="30px">
 
-Este site desenvolvido como teste para vaga de desenvolvedor frontend na IBM.
+Este site foi desenvolvido como teste para vaga de desenvolvedor frontend na IBM.
 
 DEMO disponivel em: https://ibmbooks.netlify.app/
 
